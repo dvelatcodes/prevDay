@@ -16,7 +16,7 @@ export default function App() {
     }
   }
   return (
-    <div style={{padding: "40px"}}>
+    <div style={{ padding: "40px" }}>
       <h1>
         Today is: {day}<br />
         {
@@ -33,11 +33,20 @@ export default function App() {
 }
 function usePrevious(val) {
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  for (let i = 0; i < daysOfWeek.length; i++){
+  for (let i = 0; i < daysOfWeek.length; i++) {
     if (daysOfWeek[i] === val && i === 0) {
       return daysOfWeek[daysOfWeek.length - 1]
-    }else if (daysOfWeek[i] === val && i !== 0) {
+    } else if (daysOfWeek[i] === val && i !== 0) {
       return daysOfWeek[i - 1]
     }
   }
 }
+
+// or
+// function usePrevious(val) {
+//   const ref = useRef();
+//   useEffect(() => {
+//     ref.current = val;
+//   }, [val]);
+//   return ref.current;
+// }
